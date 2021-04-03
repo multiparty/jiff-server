@@ -230,7 +230,6 @@ exports.singleCompute = function (jiff_instance, shareParameters, test, values, 
       }
     }
     indices.sort();
-
     // Compute
     var result = func(values[indices[0]], values[indices[1]]);
     for (var i = 2; i < indices.length; i++) {
@@ -256,7 +255,6 @@ exports.singleTest = async function (jiff_instance, test, testInputs) {
 
     // Compute in the Open
     var actualResult = exports.singleCompute(jiff_instance, shareParameters, test, testInputs, exports.openInterpreter);
-
     // Compute under MPC
     var mpcResult = exports.singleCompute(jiff_instance, shareParameters, test, shares, exports.mpcInterpreter);
     if (mpcResult == null) {
